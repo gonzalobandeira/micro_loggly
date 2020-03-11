@@ -20,4 +20,4 @@ output:
 logging.json: true
 logging.metrics.enabled: false
 
-name: "SERVER"
+name: "${SERVER}"

@@ -5,6 +5,8 @@ services:
     image: "docker.elastic.co/beats/filebeat:7.2.0"
     container_name: filebeat_loggly
     user: root
+    environment:
+      - SERVER=${SERVER}
     volumes:
       - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       - /var/lib/docker:/var/lib/docker:ro
