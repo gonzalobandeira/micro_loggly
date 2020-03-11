@@ -6,7 +6,7 @@ services:
     container_name: filebeat_loggly
     user: root
     volumes:
-      - /home/gonzalo/Documents/2.-Proyectos/micro_elk_server/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       - /var/lib/docker:/var/lib/docker:ro
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
@@ -20,6 +20,6 @@ services:
     environment:
       - TOKEN=${TOKEN}
     volumes:
-      - /home/gonzalo/Documents/2.-Proyectos/micro_elk_server/logstash.conf:/logstash.conf
-      - /home/gonzalo/Documents/2.-Proyectos/micro_elk_server/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash.conf:/logstash.conf
+      - ./logstash.yml:/usr/share/logstash/config/logstash.yml
     restart: always
