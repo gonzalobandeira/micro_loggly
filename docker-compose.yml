@@ -4,6 +4,8 @@ services:
   filebeat:
     image: "docker.elastic.co/beats/filebeat:7.2.0"
     container_name: filebeat_loggly
+    logging:
+      driver: syslog
     user: root
     environment:
       - SERVER=${SERVER}
@@ -17,6 +19,8 @@ services:
 
   logstash:
     build: .
+    logging:
+      driver: syslog
     container_name: logstash_loggly
     command: logstash -f /logstash.conf
     environment:
